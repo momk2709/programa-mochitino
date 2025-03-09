@@ -1,5 +1,5 @@
 from usuarios import obtener_usuarios, crear_usuario, buscar_usuario_por_id
-from tabulate import tabulate
+from tabular import tabular
 
 def mostrar_menu():
     """Muestra un menú en la consola con opciones disponibles."""
@@ -11,7 +11,7 @@ def mostrar_menu():
     ]
 
     print("\n🔹 MENÚ PRINCIPAL 🔹")
-    print(tabulate(menu_opciones, headers=["Opción", "Acción"], tablefmt="fancy_grid"))
+    print(tabular(menu_opciones, headers=["Opción", "Acción"]))
 
 def ejecutar_opcion(opcion):
     """Ejecuta la función seleccionada por el usuario."""
@@ -19,7 +19,7 @@ def ejecutar_opcion(opcion):
         usuarios = obtener_usuarios()
         if usuarios:
             print("\n📋 Lista de Usuarios:")
-            print(tabulate(usuarios, headers=["ID", "Nombre", "Email"], tablefmt="fancy_grid"))
+            print(tabular(usuarios, headers=["ID", "Nombre", "Email"]))
         else:
             print("\n⚠️ No hay usuarios registrados.")
 
@@ -38,7 +38,7 @@ def ejecutar_opcion(opcion):
             usuario = buscar_usuario_por_id(user_id)
             if usuario:
                 print("\n🔍 Usuario encontrado:")
-                print(tabulate([usuario], headers=["ID", "Nombre", "Email"], tablefmt="fancy_grid"))
+                print(tabular([usuario], headers=["ID", "Nombre", "Email"]))
             else:
                 print("⚠️ Usuario no encontrado.")
         except ValueError:
@@ -51,6 +51,7 @@ def ejecutar_opcion(opcion):
     else:
         print("⚠️ Opción inválida. Inténtalo de nuevo.")
 
+# AQUI SE UTILIZA UN LOOP PARA QUE EL PROGRAMA CORRA HASTA QUE SE INDIQUE SU SALIDA
 if __name__ == "__main__":
     while True:
         mostrar_menu()
